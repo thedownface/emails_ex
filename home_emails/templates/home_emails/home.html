@@ -1,0 +1,19 @@
+{% extends 'home_emails/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% load static %}
+{% if user.is_authenticated %}
+<div class="links_block" style="margin: 80px auto;">
+  <ul>
+    <li><a href="#">URL FINDER</a></li>
+    <li><a href="{% url 'e_selenium:e_selenium' %}">EMAIL EXTRACTOR(SELENIUM)</a></li>
+    <li><a href="{% url 'e_scrapy:e_scrapy' %}">EMAIL EXTRACTOR(SCRAPY)</a></li>
+    <li><a href="{% url 'e_sender:e_sender' %}">EMAIL SENDER</a></li>
+    <li><a href="{% url 'e_bounce:e_bounce' %}">EMAIL BOUNCE DETECTOR</a></li>
+  </ul>
+
+</div>
+{% endif %}
+{% endblock %}

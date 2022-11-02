@@ -1,0 +1,33 @@
+{% extends "home_emails/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% if user.is_authenticated %}
+<div class="form-style-6">
+  <h1>FILL THIS FORM</h1>
+        <form action="{% url "e_bounce:e_bounce" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy}}
+            <input type="text"
+                   title="subject"
+                   name="subject"
+                   required="required"
+                   placeholder="ENTER SUBJECT">
+            <p>
+            <input type="submit"
+                   value="RUN">
+        </div>
+
+        <p>{{ loggedin }}</p>
+        <hr>
+
+        {% for row in excel_data %}
+            {% for cell in row %}
+                {{ cell }}&nbsp;&nbsp;
+            {% endfor %}
+            <br>
+        {% endfor %}
+{% else %}
+<h1> PLEASE LOG IN</h1>
+{% endif %}
+{% endblock content %}

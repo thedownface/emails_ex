@@ -1,0 +1,52 @@
+{% extends "home_emails/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% if user.is_authenticated %}
+        <div class="form-style-6">
+        <h1>FILL THIS FORM</h1>
+        <form action="{% url "e_sender:e_sender" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy}}
+            <div id="file">
+            <input type="file"
+                   title="Upload excel file"
+                   name="excel_file"
+                    placeholder="SELECT EMAIL FILES"
+                   required="required">
+                  </div>
+              <div id="subject">
+            <input type="text"
+                   title="subject"
+                   name="subject"
+                   required="required" placeholder="ENTER SUBJECT">
+                   <!-- <label>ENTER NO. OF ATTENDEES</label --> </div>
+            <div id="attendees">      
+            <input type="text"
+                   title="attendees"
+                   name="attendees"
+                   required="required" placeholder="ENTER NO. OF ATTENDEES">
+                   </div>
+            <div id="showname">      
+            <input type="text"
+                   title="showname"
+                   name="showname"
+                   required="required"placeholder="ENTER SHOW NAME">
+            <input type="submit"
+                   class="btn"
+                   value="RUN">
+                  </div>
+
+        <p>{{ loggedin }}</p>
+        <hr>
+
+        {% for row in excel_data %}
+            {% for cell in row %}
+                {{ cell }}&nbsp;&nbsp;
+            {% endfor %}
+            <br>
+        {% endfor %}
+{% else %}
+<h1> PLEASE LOG IN</h1>
+{% endif %}
+{% endblock content %}

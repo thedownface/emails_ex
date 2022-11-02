@@ -1,0 +1,16 @@
+
+{% extends 'home_emails\base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+<div class="form-style-6">
+  <h1>PLEASE LOG IN!</h1>
+<form method="post" class="login_form" >
+  {% csrf_token %}
+  {{ form|crispy}}
+  <input  type="submit" value="LOGIN">
+</form>
+</div>
+{% endblock %}
