@@ -1,4 +1,4 @@
-from tkinter import E
+
 from django.shortcuts import render,HttpResponse
 import smtplib
 import openpyxl
