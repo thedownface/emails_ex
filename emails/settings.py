@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'home_emails.apps.HomeEmailsConfig',
     'crispy_forms',
     'e_selenium.apps.ESeleniumConfig',
-    'e_scrapy.apps.EScrapyConfig',
     'e_sender.apps.ESenderConfig',
     'e_bounce.apps.EBounceConfig',
     'django_celery_results',

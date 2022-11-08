@@ -1,18 +1,73 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <style>
+	.card1{
+	text-decoration: none;
+	margin:20px;
+	display: grid;
+	grid-template-columns: 200px;
+	grid-template-rows: 180px,180px,60px;
+	grid-template-areas: "image" "text" "stats";
+	font-family: roboto;
+	border-radius: 18px;
+	background: rgb(255, 255, 255);
+	box-shadow: 5px 5px 15px rgba(0,0,0,9);
+	text-align: center;
+	transition: 0.5s;
+	cursor: pointer;
+   }
+   .card-image1
+   {
+	grid-area:image;
+	background-image: url("{%static 'home_emails/email-bg.jpg'%}");
+   }
+   .card-text1
+   {
+	grid-area:text;
+   }
+   .card-text1 p
+   {
+	color: grey;
+	font-size: 15px;
+	font-weight: 300;
+   }
+   .card-text1 h2
+   {
+	margin-top: 0px;
+   }
+   .card-stats1
+   {
+  grid-area: stats;
+   }
+   .card1:hover{
+	transform: scale(1.2);
+	box-shadow: 5px 5px 15px rgba(0, 0,0,0.6);
+   }
+    #this {
+	  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("{%static 'home_emails/email-bg.jpg'%}");
+      background-size: cover;
+      background-color: rgba(0.1, 0.1, 0.1, 0.3);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+    }
+ 
+
 .form-style-6{
 	font: 95% Arial, Helvetica, sans-serif;
 	max-width: 400px;
-	margin: 80px auto;
+    margin: 80px auto;
 	padding: 16px;
-  
+    
 	background: #F7F7F7;
 }
-.form-style-6 h1{
-	background: #2f2952;
+.form-style-6 h1{ 
+	background:  #5f788a;
 	padding: 20px 0;
 	font-size: 140%;
 
@@ -42,7 +97,7 @@
 	margin-bottom: 4%;
 	border: 1px solid #ccc;
 	padding: 3%;
-	color: #555;
+	color:  #5f788a;
 	font: 95% Arial, Helvetica, sans-serif;
 }
 .form-style-6 input[type="text"]:focus,
@@ -58,9 +113,9 @@
 .form-style-6 textarea:focus,
 .form-style-6 select:focus
 {
-	box-shadow: 0 0 5px #2f2952;
+	box-shadow: 0 0 5px  #5f788a;
 	padding: 3%;
-	border: 1px solid #2f2952;
+	border: 1px solid  #5f788a;
 }
 
 .form-style-6 input[type="submit"],
@@ -70,7 +125,7 @@
 	-moz-box-sizing: border-box;
 	width: 100%;
 	padding: 3%;
-	background: #2f2952;
+	background:  #5f788a;
 	border-bottom: 2px solid #2f2952;
 	border-top-style: none;
 	border-right-style: none;
@@ -79,7 +134,7 @@
 }
 .form-style-6 input[type="submit"]:hover,
 .form-style-6 input[type="button"]:hover{
-	background:  #2f2952;
+	background:   #5f788a;
 }
 
 
@@ -89,7 +144,8 @@
   <meta charset="utf-8">
   <title>{% block title %}EMAIL HANLDER{% endblock %}</title>
 </head>
-<body>
+<body id="this">
+
 	<header class="site-header">
 		<nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
 		  <div class="container">
@@ -119,11 +175,14 @@
 		</nav>
 	  </header>
 	  <div>
+      <div class="bg">
 		<main role="main" class="container">
+      
             <div class="row">
 				{% block content %}{% endblock %}
 			</div>
 			</main>
 			</div>
+    </div>
 </body>
 </html>

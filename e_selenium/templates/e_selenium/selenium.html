@@ -1,14 +1,12 @@
 {% extends "home_emails/base.html" %}
 {% block content %}
 {% load crispy_forms_tags %}
-{% load static %}
 {% if user.is_authenticated %}
-<div class="form-style-6">
+<div class="form-style-6" >
     <h1>RUN A FILE</h1>
         <form action="{% url "e_selenium:e_selenium" %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy}}
-
             <input type="file"
                    title="Upload excel file"
                    name="excel_file"

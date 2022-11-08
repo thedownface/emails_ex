@@ -1,19 +1,53 @@
-{% extends 'home_emails/base.html' %}
 
+{% extends 'home_emails/base.html' %}
+{% load static %}
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% load static %}
-{% if user.is_authenticated %}
-<div class="links_block" style="margin: 80px auto;">
-  <ul>
-    <li><a href="#">URL FINDER</a></li>
-    <li><a href="{% url 'e_selenium:e_selenium' %}">EMAIL EXTRACTOR(SELENIUM)</a></li>
-    <li><a href="{% url 'e_scrapy:e_scrapy' %}">EMAIL EXTRACTOR(SCRAPY)</a></li>
-    <li><a href="{% url 'e_sender:e_sender' %}">EMAIL SENDER</a></li>
-    <li><a href="{% url 'e_bounce:e_bounce' %}">EMAIL BOUNCE DETECTOR</a></li>
-  </ul>
 
-</div>
+{% if user.is_authenticated %}
+<a class="card1" href="#" style=" color: inherit;
+text-decoration: inherit; ">
+  <div class="card-image1">
+  <img src="static/home_emails/urls.webp" width="200px" height="200px"/ ></div>
+  <div class="card-text1">
+    <h2>URLS EXTRACTOR</h2>
+    <p> Click here to Extract URLS</p>
+  </div>
+</a>
+<a class="card1" href="{% url 'e_selenium:e_selenium' %}" style=" color: inherit;
+text-decoration: inherit; ">
+  <div class="card-image1">
+  <img src="static/home_emails/emails.webp" width="200px" height="200px"/ ></div>
+  <div class="card-text1">
+    <h2>EMAIL EXTRACTOR</h2>
+    <p> Click here to Extract Email id's</p>
+  </div>
+</a>
+<a class="card1" href="{% url 'e_sender:e_sender' %}" style=" color: inherit;
+text-decoration: inherit; ">
+  <div class="card-image1">
+  <img src="static/home_emails/email-sender.webp" width="200px" height="200px"/ ></div>
+  <div class="card-text1">
+    <h2>EMAIL SENDER</h2>
+    <p> Click here to send automated Emails</p>
+  </div>
+</a>
+<a class="card1" href="{% url 'e_bounce:e_bounce' %}" style=" color: inherit;
+text-decoration: inherit; ">
+  <div class="card-image1">
+  <img src="static/home_emails/bounce.webp" width="200px" height="200px"/ ></div>
+  <div class="card-text1">
+    <h2>BOUNCE DETECTOR</h2>
+    <p> Click here to remove bounced emails from your email list</p>
+  </div>
+</a>
+
+  <!-- <ul>
+    <li><a href="#"> <div class="card1"><h1>URLS FINDER</h1><p>CLICK HERE TO FIND URLS , JUST PASS IN A EXHIBITOR'S LINK AND RUN. </p></div></a></li>
+   <li><a href="{% url 'e_selenium:e_selenium' %}"> <div class="card1"><h1>EMAIL EXTRACTOR SELENIUM</h1><p>CLICK HERE TO EXTRACT EMAILS,JUST PASS THE EXCEL SHEET CONTAINING WEBSITES IN COLUMN 1 </p></div></a></li>
+    <li><a href="{% url 'e_sender:e_sender' %}"> <div class="card1"><h1>EMAIL SENDER</h1><p>CLICK HERE TO SEND AUTOMATED EMAILS.</p></div></a></li>
+    <li><a href="{% url 'e_bounce:e_bounce' %}"> <div class="card1"><h1>EMAIL BOUNCE DETECTOR</h1><p>CLICK HERE TO DETECT BOUNCE EMAILS TO YOUR LAST EXHIBITORS LIST. </p></div></a></li>
+  </ul>> -->
 {% endif %}
 {% endblock %}

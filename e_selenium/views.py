@@ -26,8 +26,8 @@ def e_selenium(request):
 
         path='driver/msedgedriver.exe'
         options=webdriver.EdgeOptions()
-        options.add_argument("--headless")
-        options.add_argument("--window-size=%s" % WINDOW_SIZE)
+        #options.add_argument("--headless")
+        #options.add_argument("--window-size=%s" % WINDOW_SIZE)
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         #It is used to append an experimental option which is passed to the Chrome browser.
         browser=webdriver.Edge(options=options,executable_path=path)
@@ -81,7 +81,8 @@ def e_selenium(request):
         browser.close()
         workbook.close()
         output.seek(0)
-        file_name = "email.xlsx"
+        save_file = str(excel_file).split('.')
+        file_name=save_file[0]+".xlsx"
         response = HttpResponse(output,content_type ='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
         )
         response['Content-Disposition'] = 'attachment; filename=%s' % file_name

@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% if user.is_authenticated %}
-<div class="form-style-6">
+<div class="form-style-6" style="width:400px; border: 1px solid black;">
   <h1>FILL THIS FORM</h1>
         <form action="{% url "e_bounce:e_bounce" %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}

@@ -22,7 +22,6 @@ urlpatterns = [
     path("accounts/",include("django.contrib.auth.urls")),
     path('', TemplateView.as_view(template_name='home_emails/home.html'), name='home'), 
     path('', include("e_selenium.urls")),
-    path('', include("e_scrapy.urls")),
     path('', include("e_sender.urls")),
     path('', include("e_bounce.urls")),
     
